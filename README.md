@@ -9,6 +9,11 @@
 [![No AndroidX](https://img.shields.io/badge/No-AndroidX-brightgreen.svg)]()
 [![Min SDK](https://img.shields.io/badge/Min%20SDK-21-blue.svg)]()
 
+<p align="center">
+  <a href="https://github.com/hashierholmes/ScreenSeek/releases/latest">
+    <img src="https://img.shields.io/badge/Download-ScreenSeek-blue?style=for-the-badge&logo=android" alt="Download ScreenSeek v1.0" />
+  </a>
+</p>
 ---
 
 ## Overview
@@ -24,11 +29,11 @@ ScreenSeek does not require a separate backend or middleware server. API request
 ## Screenshots
 
 <p align="center">
-  <img src="docs/screenshots/1.png" width="30%" />
+  <img src="docs/screenshots/1.png" width="25%" />
   &nbsp;&nbsp;
-  <img src="docs/screenshots/2.png" width="30%" />
+  <img src="docs/screenshots/2.png" width="25%" />
   &nbsp;&nbsp;
-  <img src="docs/screenshots/3.png" width="30%" />
+  <img src="docs/screenshots/3.png" width="25%" />
 </p>
 
 ---
