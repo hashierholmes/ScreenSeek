@@ -279,6 +279,12 @@ Please avoid submitting pull requests unless specifically requested.
 
 ## License
 
-ScreenSeek is distributed under the **MIT License**.
+ScreenSeek's source code is licensed under the **MIT License**.
 
-See [`LICENSE`](LICENSE) for more information.
+You are free to use, copy, modify, distribute, sublicense, and commercially use the source code in accordance with the terms of the MIT License.
+
+The **ScreenSeek name, logo, branding, visual identity, and other project identifiers are not licensed under the MIT License**. The MIT License applies only to the source code and does not grant permission to use ScreenSeek's branding or represent a fork or derivative work as the official ScreenSeek project.
+
+Forks and derivative works are permitted under the MIT License, including commercial distribution, but should use their own name, logo, and branding.
+
+See [`LICENSE`](LICENSE) for the complete license text.
