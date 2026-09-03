@@ -14,6 +14,7 @@
     <img src="https://img.shields.io/badge/Download-ScreenSeek-blue?style=for-the-badge&logo=android" alt="Download ScreenSeek v1.0" />
   </a>
 </p>
+
 ---
 
 ## Overview
