@@ -11,7 +11,7 @@
 
 <p align="center">
   <a href="https://github.com/hashierholmes/ScreenSeek/releases/latest">
-    <img src="https://img.shields.io/badge/Download-ScreenSeek-blue?style=for-the-badge&logo=android" alt="Download ScreenSeek v1.0" />
+    <img src="https://img.shields.io/badge/Download-ScreenSeek-blue?style=for-the-badge&logo=android" alt="Download ScreenSeek Latest" />
   </a>
 </p>
 
