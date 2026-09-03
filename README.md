@@ -24,9 +24,11 @@ ScreenSeek does not require a separate backend or middleware server. API request
 ## Screenshots
 
 <p align="center">
-  <img src="docs/screenshots/1.png" width="250">
-  <img src="docs/screenshots/2.png" width="250">
-  <img src="docs/screenshots/3.png" width="250">
+  <img src="docs/screenshots/1.png" width="30%" />
+  &nbsp;&nbsp;
+  <img src="docs/screenshots/2.png" width="30%" />
+  &nbsp;&nbsp;
+  <img src="docs/screenshots/3.png" width="30%" />
 </p>
 
 ---
