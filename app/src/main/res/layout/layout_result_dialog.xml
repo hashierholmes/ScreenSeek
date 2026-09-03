@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+     xmlns:android="http://schemas.android.com/apk/res/android"
+     android:layout_height="wrap_content"
+     android:layout_width="match_parent"
+     android:background="@drawable/bg_dialog"
+     android:elevation="20dp"
+     android:padding="20dp"
+     android:orientation="vertical">
+
+    <RelativeLayout
+         android:layout_height="wrap_content"
+         android:layout_width="match_parent"
+         android:layout_marginBottom="12dp">
+
+        <LinearLayout
+             android:layout_height="wrap_content"
+             android:layout_width="wrap_content"
+             android:gravity="center_vertical"
+             android:layout_centerVertical="true"
+             android:orientation="horizontal"
+             android:layout_alignParentStart="true">
+
+            <ImageView
+                 android:layout_height="22dp"
+                 android:layout_width="22dp"
+                 android:src="@drawable/icon"
+                 android:layout_marginEnd="8dp"
+                 android:contentDescription="ScreenSeek Logo" />
+
+            <TextView
+                 android:layout_height="wrap_content"
+                 android:layout_width="wrap_content"
+                 android:textSize="17sp"
+                 android:fontFamily="sans-serif-medium"
+                 android:textColor="#60A5FA"
+                 android:id="@+id/tvHeaderTitle"
+                 android:text="ScreenSeek"
+                 android:textStyle="bold" />
+
+        </LinearLayout>
+
+        <LinearLayout
+             android:layout_height="wrap_content"
+             android:layout_width="wrap_content"
+             android:gravity="center_vertical"
+             android:layout_centerVertical="true"
+             android:orientation="horizontal"
+             android:layout_alignParentEnd="true">
+
+            <Button
+                 android:layout_height="32dp"
+                 android:layout_width="wrap_content"
+                 android:layout_marginEnd="8dp"
+                 android:background="@drawable/bg_btn_secondary"
+                 android:textSize="11sp"
+                 android:textColor="#9CA3AF"
+                 android:paddingHorizontal="12dp"
+                 android:id="@+id/btnCopyResult"
+                 android:text="Copy" />
+
+            <Button
+                 android:layout_height="32dp"
+                 android:layout_width="32dp"
+                 android:background="@drawable/bg_btn_secondary"
+                 android:padding="0dp"
+                 android:textSize="13sp"
+                 android:textColor="#EF4444"
+                 android:id="@+id/btnCloseResult"
+                 android:text="✕"
+                 android:textStyle="bold" />
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+    <TextView
+         android:layout_height="wrap_content"
+         android:layout_width="wrap_content"
+         android:layout_marginBottom="8dp"
+         android:textSize="13sp"
+         android:fontFamily="sans-serif-medium"
+         android:textColor="#818CF8"
+         android:id="@+id/tvLoadingStatus"
+         android:text="⟡ Capturing snippet..." />
+
+    <ScrollView
+         android:layout_height="240dp"
+         android:layout_width="match_parent"
+         android:background="@drawable/bg_input"
+         android:padding="12dp">
+
+        <TextView
+             android:layout_height="wrap_content"
+             android:layout_width="match_parent"
+             android:textSize="14sp"
+             android:textColor="#E5E7EB"
+             android:lineSpacingMultiplier="1.25"
+             android:textIsSelectable="true"
+             android:id="@+id/tvResultText"
+             android:text="" />
+
+    </ScrollView>
+
+</LinearLayout>

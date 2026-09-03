@@ -1,0 +1,155 @@
+import java.util.Properties
+import java.io.FileInputStream
+
+plugins {
+    id 'com.android.application'
+}
+
+def keystoreProperties = new Properties()
+def keystoreFile = rootProject.file("keystore.properties")
+
+if (keystoreFile.isFile()) {
+    keystoreFile.withInputStream { input ->
+        keystoreProperties.load(input)
+    }
+}
+
+def requiredSigningProperties = [
+    'STORE_FILE',
+    'STORE_PASSWORD',
+    'KEY_ALIAS',
+    'KEY_PASSWORD'
+]
+
+def missingSigningProperties = requiredSigningProperties.findAll { key ->
+    !keystoreProperties.containsKey(key) ||
+    keystoreProperties[key].toString().trim().isEmpty()
+}
+
+android {
+    namespace 'hh.screenseek.app'
+    compileSdk 33
+
+    defaultConfig {
+        applicationId 'hh.screenseek.app'
+        minSdk 21
+        targetSdk 33
+        versionCode 1
+        versionName '1.0'
+
+        vectorDrawables {
+            useSupportLibrary true
+        }
+    }
+
+    signingConfigs {
+        release {
+            if (missingSigningProperties.isEmpty()) {
+                storeFile = file(keystoreProperties['STORE_FILE'])
+                storePassword = keystoreProperties['STORE_PASSWORD']
+                keyAlias = keystoreProperties['KEY_ALIAS']
+                keyPassword = keystoreProperties['KEY_PASSWORD']
+            }
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            signingConfig signingConfigs.release
+
+            proguardFiles(
+                getDefaultProguardFile(
+                    'proguard-android-optimize.txt'
+                ),
+                'proguard-rules.pro'
+            )
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+
+    buildFeatures {
+        viewBinding true
+    }
+}
+
+/*
+ * Validate release signing configuration.
+ *
+ * Debug builds remain unaffected.
+ * Any task whose name starts with "assembleRelease"
+ * will require a valid local release signing configuration.
+ */
+tasks.configureEach { task ->
+
+    if (task.name.equalsIgnoreCase('assembleRelease')) {
+
+        task.doFirst {
+
+            if (!keystoreFile.isFile()) {
+                throw new GradleException(
+                    '''
+                    Release signing is not configured.
+
+                    Missing:
+                        keystore.properties
+
+                    Setup:
+
+                        1. Copy:
+                           keystore.properties.example
+
+                           to:
+                           keystore.properties
+
+                        2. Create your own release keystore.
+
+                        3. Configure the required values.
+
+                    IMPORTANT:
+                    Never commit keystore.properties or your
+                    private release keystore.
+                    '''.stripIndent()
+                )
+            }
+
+            if (!missingSigningProperties.isEmpty()) {
+                throw new GradleException(
+                    """
+                    Release signing configuration is incomplete.
+
+                    Missing properties:
+                        ${missingSigningProperties.join('\n    ')}
+
+                    Check:
+                        keystore.properties.example
+                    """.stripIndent()
+                )
+            }
+
+            def releaseKeystore = file(
+                keystoreProperties['STORE_FILE'].toString()
+            )
+
+            if (!releaseKeystore.isFile()) {
+                throw new GradleException(
+                    """
+                    Release keystore was not found.
+
+                    STORE_FILE points to:
+                        ${releaseKeystore.absolutePath}
+
+                    Check STORE_FILE in:
+                        keystore.properties
+                    """.stripIndent()
+                )
+            }
+
+            println 'Release signing configuration validated successfully.'
+        }
+    }
+}
